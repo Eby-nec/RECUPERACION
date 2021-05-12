@@ -1,12 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Centro Integrado de FP</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*Para el grid
+        */
+        html,
+        body {
+            height: 100%;
+          
+        }
+        
+        /* button{
+            background-image: url("bars-solid.svg");
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            background-size: 80%;
+            height: 50px;
+            width: 50px;
+           border-radius: 1em;
+        }*/
+        /*Quitar los puntos*/
+        a {
+            text-decoration: none;
+        }
+
+        /*Quitar los puntos*/
+        header ul {
+            font-size: 30px;
+            /*1.5em*/
+
+            font-family: "Arial";
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header li a {
+            display: flex;
+            /*poner el color segun*/
+            background-color: azure;
+            height: 40px;
+            /*para centrar el menu*/
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        body {
+            display: grid;
+            grid-template-areas: "header"
+                "login"
+                "info"
+                "footer";
+            /*filas*/
+            grid-template-rows: auto 1fr 3fr auto;
+            grid-template-columns: 1fr;
+
+        }
+
+        header li a:hover {
+            background-color: blue;
+            color: azure;
+        }
+
+        /*header li a:visited {
+                background-color: rgb(255, 0, 234);
+                color: azure;
+            }*/
+
+        /*Estilo icono de menu*/
+        .menu {
+            background-image: url("bars-solid.svg");
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            background-size: 80%;
+            height: 50px;
+            width: 50px;
+            border-radius: 1em;
+            display: inline-block;
+        }
+
+        /*Vista movil*/
+        span {
+            display: flex;
+            justify-content: space-between;
+            /*si las imagenes son del mismo tamaño , mejor poner align-items: center*/
+            align-items: baseline;
+        }
+
+        header img {
+            width: 60px;
+        }
+
+        header {
+            background-color: palevioletred;
+            grid-area: header;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: palevioletred
+        }
+
+        @media (max-width:600px) {
+            .mostrar {
+                display: flex;
+            }
+
+            .ocultar {
+                display: none;
+            }
+        }
+
+
+        section:nth-of-type(1) {
+            grid-area: login;
+            background-color: cornflowerblue;
+        }
+
+        section:nth-of-type(2) {
+            grid-area: info;
+            background-color: azure;
+        }
+
+        footer {
+            justify-content: center;
+        }
+
+        /**/
+        @media(min-width:600px) {
+            body {
+                display: grid;
+                grid-template-areas: "header header"
+                    " info login"
+                    "footer footer";
+                /*filas*/
+                grid-template-rows: auto 1fr auto;
+                grid-template-columns: 3fr 1fr;
+
+            }
+
+            .menu {
+                display: none;
+            }
+
+            header ul {
+                flex-direction: row;
+                justify-content: space-evenly;
+                /*si ponemos, en la li(flex-grow: 1),esta propiedad sobraría co*/
+            }
+
+            #sun {
+                width: 100%;
+            }
+
+            li {
+                /*-flex-grow: 1;*/
+                width: 20%;
+                /*Con este, hay que poner al ul justify content: space-evenly*/
+
+            }
+
+            nav {
+                display: flex;
+            }
+
+            ul {
+                flex-grow: 1;
+                align-items: center;
+            }
+
+            footer {
+                justify-content: center;
+            }
+
+            
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <nav>
+            <span>
+                <a href="#">
+                    <img src="logoEby.png" alt="logoEby">
+                </a>
+                <button class="menu" id="menu"></button>
+            </span>
+
+            <ul class="ocultar" id="lista">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="administrador.html">Administrador</a></li>
+                <li><a href="#">El Centro</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Oferta</a></li>
+                <li><a href="#">Alumnado</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+    <section>
+        <h1>Administrador</h1>
+        <img src="sunflower.jpg" alt="sunflower" id="sun">
+    </section>
+
+    <section>
+        <h2>Rellene los datos</h2>
+        <form action="#" method="post" id="formulario">
+            <fieldset id="alumno">
+                <legend>Login</legend>
+                <label>Nombre: <input type="text"></label><br><br>
+                <label>Apellido: <input type="text"></label><br><br>
+                <label>Curso: <input type="text"></label><br><br>
+                <label>Correo: <input type="email"></label><br><br>
+                <label>Contraseña: <input type="password"></label><br><br>
+                <input type="radio" id="profe" name="elegir" value="profe">
+                <label for="male">Profesor</label> &nbsp; &nbsp;
+                <input type="radio" id="alumno" name="elegir" value="alumno">
+                <label for="female">Alumno</label>
+
+                <br><br><br>
+                <input type="submit" value="Enviar" name="enviar">
+            </fieldset>
+        </form>
+
+    </section>
+
+    <footer>
+        <small>&copy;Juan de Colonia</small>
+    </footer>
+
+
+    <!--13/04/2021-->
+    <script>
+        /*
+        let mq = window.matchMedia("(min-width:600px)");
+        function screenTest(e){
+            let lista = document.querySelector("ul");
+            if(e.matches){
+                lista.className="mostrar";
+            }else{
+                lista.className="ocultar";
+            }
+        }
+        mq.addListener(screenTest);
+        */
+        /*    document.getElementById("menu").addEventListener("click", menu);
+
+            function menu(e) {
+                e.preventDefault();
+                let lista = document.getElementById("lista");
+                if (lista.className == "ocultar") {
+                    lista.className = "mostrar";
+                } else {
+                    lista.className = "ocultar";
+                }
+
+            }*/
+        document.getElementById("menu").addEventListener("click", menu);
+        document.getElementsByTagName("h2")[0].addEventListener("click", escoge);
+
+        function menu(e) {
+            e.preventDefault();
+            let lista = document.getElementById("lista");
+            if (lista.className == "ocultar") {
+                lista.className = "mostrar";
+            } else {
+                lista.className = "ocultar";
+            }
+
+        }
+
+        function escoge(e) {
+            e.preventDefault();
+            let caja = document.getElementById("alumno");
+            if (caja.id == "prefesor") {
+                caja.id("alumno");
+            }
+
+        }
+    </script>
+
+
 </body>
+
 </html>
