@@ -60,9 +60,10 @@
         body {
             display: grid;
             grid-template-areas: "header"
-                                 "login"
-                                 "info"
-                                 "footer";           /*filas*/
+                "login"
+                "info"
+                "footer";
+            /*filas*/
             grid-template-rows: auto 1fr 3fr auto;
             grid-template-columns: 1fr;
 
@@ -87,7 +88,7 @@
         }
 
         /*Vista movil*/
-        div {
+        span {
             display: flex;
             justify-content: space-between;
             /*si las imagenes son del mismo tamaño , mejor poner align-items: center*/
@@ -99,13 +100,14 @@
         }
 
         header {
-            background-color: burlywood;
+            background-color: palevioletred;
             grid-area: header;
         }
 
         footer {
             grid-area: footer;
-            background-color: burlywood
+            background-color: palevioletred;
+            text-align: center;
         }
 
         @media (max-width:600px) {
@@ -159,6 +161,10 @@
 
             }
 
+            #sun {
+                width: 100%;
+            }
+
             nav {
                 display: flex;
             }
@@ -174,14 +180,16 @@
 <body>
     <header>
         <nav>
-            <div>
+            <span>
                 <a href="#">
                     <img src="logoEby.png" alt="logoEby">
                 </a>
                 <button class="menu" id="menu"></button>
-            </div>
+            </span>
 
             <ul class="ocultar" id="lista">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="administrador.html">Administrador</a></li>
                 <li><a href="#">El Centro</a></li>
                 <li><a href="#">Contacto</a></li>
                 <li><a href="#">Oferta</a></li>
@@ -193,21 +201,13 @@
     </header>
 
     <section>
-        <h2>Login</h2>
-        <form>
-            <label>Correo: <input type="email"></label><br>
-            <label>Contraseña: <input type="password"></label><br>
-            <input type="submit">
-        </form>
+        <h1>Inicio</h1>
+        <img src="sunflower.jpg" alt="sunflower" id="sun">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus vel dicta distinctio veniam quia
+            laborum. Architecto necessitatibus cupiditate laboriosam ullam adipisci ipsam amet consequuntur rem eos,
+            delectus ipsa a fugit!</p>
+    
     </section>
-    <section>
-        <h2>Informacion</h2>
-        <ul>
-            <li>Estudios</li>
-            <li>Referencia en FP</li>
-        </ul>
-    </section>
-
     <footer>
         <small>&copy;Juan de Colonia</small>
     </footer>
